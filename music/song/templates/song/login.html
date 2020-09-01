@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+Login
+{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <form method="POST" action="/song/login">{% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+          </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   {% endblock %}

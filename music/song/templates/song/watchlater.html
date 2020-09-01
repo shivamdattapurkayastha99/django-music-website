@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+All songs
+{% endblock %}
+{% block body %}
+{% load static %}
+<h1 style="color: green;font-family: serif;font-weight: 550;text-align: center;">Watch Later</h1>
+<div class="container my-3">
+{% for i in song reversed %}
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="/media/{{i.image}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{i.name}}</h5>
+          <p class="card-text">{{i.tags}}</p>
+          <a href="/song/songs/{{i.song_id}}"><button class="btn btn-danger">Listen Song</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+All songs
+{% endblock %}
+{% block body %}
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6" style="padding-top: 3%;">
+        <img src="/media/{{song.image}}" alt="" height="250px",width="350px">
+      </div>
+      <div class="col-md-6">
+          <h2 style="padding-top: 5%;font-weight: 550;color: green;">Title:{{song.name}}</h2>
+          <h4 style="padding-top: 2%;font-weight: 550;color: green;">Category:{{song.tags}}</h4>
+          <h4 style="padding-top: 2%;font-weight: 550;color: green;">Movie:{{song.movie}}</h4>
+          <h4 style="padding-top: 2%;font-weight: 550;color: green;">Singer:{{song.singer}}</h4>
+         
+            <audio controls>
+                
+                <source src="/media/{{song.song}}" type="audio/mpeg">
+                
+              </audio>
+              <br>
+              <div class="row">
+              <a href="/media/{{song.song}}" download><button class="btn btn-danger">Download Now</button></a>
+              
+              <form action="/song/watchlater" method="POST">{% csrf_token %}
+                <input type="hidden" name="video_id" value="{{song.song_id}}">
+              <button class="btn btn-danger" type="submit">Add to Watch Later</button>
+              
+              </form>
+            </div>
+      </div>
+  </div>  
+
+
+  
+</div>
+{% endblock %}

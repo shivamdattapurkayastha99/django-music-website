@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block body %}
+    {% load static %}
+    
+
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="{% static 'song/musicimage.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'song/musicimage.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'song/musicimage.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+      <h2 style="padding-left: 2%; font-family: serif;">Trending Songs</h2>
+      <div class="container">
+      <div class="row" style="padding-top: 2%;">
+        {% for i in song %}
+      <div class="card" style="width: 18rem;padding-left: 2%;">
+        <img src="media/{{i.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.name}}</h5>
+          <p class="card-text">{{i.tags}}</p>
+          <a href="/song/songs/{{i.song_id}}" class="btn btn-danger">Listen</a>
+        </div>
+      </div>
+      {% endfor %}
+     
+     
+    </div>
+</div>
+<hr>
+<h2 style="padding-left: 2%; font-family: serif;">Playlists</h2>
+<div class="container">
+<div class="row" style="padding-top: 2%;">
+    {% for i in song %}
+<div class="card" style="width: 18rem;padding-left: 2%;">
+  <img src="media/{{i.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.tags}}</p>
+    <a href="/song/songs/{{i.song_id}}" class="btn btn-danger">Listen</a>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+</div>
+<hr>
+<h2 style="padding-left: 2%; font-family: serif;">Liked Songs</h2>
+<div class="container">
+<div class="row" style="padding-top: 2%;">
+    {% for i in song %}
+<div class="card" style="width: 18rem;padding-left: 2%;">
+  <img src="media/{{i.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.tags}}</p>
+    <a href="/song/songs/{{i.song_id}}" class="btn btn-danger">Listen</a>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+{% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  
